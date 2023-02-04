@@ -25,12 +25,12 @@ BUY_PRICE = 2000
 if price_int < BUY_PRICE:
     message = f"{title} is now {price}"
 
-    with smtplib.SMTP("smtp.gmail.com", port=587) as connection:
+    with smtplib.SMTP(YOUR_SMTP_ADDRESS, port=587) as connection:
         connection.starttls()
-        result = connection.login("soutrikroy1382002@gmail.com", "ulvpykpydczbwqvm")
+        result = connection.login(YOUR_EMAIL_ADDRESS, PASSWORD)
         connection.sendmail(
-                            from_addr="soutrikroy1382002@gmail.com",
-                            to_addrs="soutrikroy1382002@gmail.com",
+                            from_addr=YOUR_EMAIL_ADDRESS,
+                            to_addrs=YOUR_EMAIL_ADDRESS,
                             msg=f"Subject:Amazon Price Alert!\n\n{message}\n{URL}"
         )
 
